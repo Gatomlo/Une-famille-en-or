@@ -1,0 +1,48 @@
+#responses{
+
+  width:40vw;
+}
+
+.reponse{
+  background-color: blue;
+  /* width:40%; */
+  list-style-type: none;
+  margin:5px;
+  color: white;
+  text-align: center;
+  min-height: 50px;
+  border-radius: 1em 4em 1em 4em;
+  font-size: 2em;
+}
+
+
+#question{
+  background-color: blue;
+  width:60%;
+  list-style-type: none;
+  margin:5px;
+  color: white;
+  text-align: center;
+  min-height: 50px;
+  border-radius: 1em 4em 1em 4em;
+  font-size: 1.5em;
+}
+
+.red{
+  color:red;
+}
+
+#quiz{
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#cross{
+  width:60%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}

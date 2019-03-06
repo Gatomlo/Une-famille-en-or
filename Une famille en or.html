@@ -1,0 +1,166 @@
+ <!DOCTYPE html>
+ <html lang="fr">
+
+  <head>
+       <meta charset="UTF-8">
+       <title>Une famille en or</title>
+       <meta name="description" content="DESCRIPTION">
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+       <link rel="stylesheet" href="assets/css/style.css">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+       <!--[if lt IE 9]>
+         <script src = "http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+       <![endif]-->
+   </head>
+
+   <body>
+    <div id="quiz">
+        <div id="cross">
+          <div>
+            <i id="crossTeamOne1" class="far fa-times-circle fa-3x"></i>
+            <i id="crossTeamOne2" class="far fa-times-circle fa-3x"></i>
+          </div>
+          <div>
+            <i id="crossTeamTwo1"class="far fa-times-circle fa-3x"></i>
+            <i id="crossTeamTwo2"class="far fa-times-circle fa-3x"></i>
+          </div>
+        </div>
+        <ul id="responses"></ul>
+        <div id="question"></div>
+    </div>
+   </body>
+
+   <script>
+
+      audioElement1 = document.createElement('audio');
+      audioElement1.setAttribute('src', 'assets/sounds/correct.mp3');
+
+      audioElement2 = document.createElement('audio');
+      audioElement2.setAttribute('src', 'assets/sounds/error.wav');
+
+      var teamOneReponsesLeft = 2;
+      var teamTwoReponsesLeft = 2;
+      var question ="Pourquoi les étudiants visionnent-ils les vidéos de cours ?"
+      var reponses = [
+        {'name':'Rattraper un cours après une absence',
+         'value': '89'},
+        {'name':'Compléter ses notes de cours',
+         'value': '58'},
+        {'name':'Enrichir ses notes de cours',
+         'value': '46'},
+        {'name':'Mieux comprendre une notion ',
+        'value': '44'},
+        {'name':'Eviter d’aller en cours ',
+         'value': '35'},
+        {'name':'Réviser en vue des examens ',
+         'value': '30'},
+      ]
+
+      $(document).ready(function() {
+        $('#question').html(question);
+        var nbOfReponse = 1
+        reponses.forEach(function(element){
+          var newReponse = document.createElement("li");
+          $(newReponse).addClass('reponse');
+          $(newReponse).attr("id",nbOfReponse);
+          $(newReponse).html(nbOfReponse);
+          $('#responses').append(newReponse);
+          nbOfReponse +=1;
+
+        });
+      });
+
+      $(document).keydown(function(e){
+        if(e.keyCode==37){
+          audioElement2.play();
+          if(teamOneReponsesLeft == 2){
+            $('#crossTeamOne1').addClass('red')
+            teamOneReponsesLeft -= 1;
+          }
+          else{
+            $('#crossTeamOne2').addClass('red')
+          }
+        }
+        if(e.keyCode==39){
+          audioElement2.play();
+          if(teamTwoReponsesLeft == 2){
+            $('#crossTeamTwo1').addClass('red')
+            teamTwoReponsesLeft -= 1;
+          }
+          else{
+            $('#crossTeamTwo2').addClass('red')
+          }
+        }
+        if(e.keyCode==97){
+          audioElement1.play();
+          setTimeout(function(){
+            $("#1").html(reponses[0].name+' - '+reponses[0].value)
+          }, 400);
+        };
+      });
+      $(document).keydown(function(e){
+        if(e.keyCode==98){
+          audioElement1.play();
+          setTimeout(function(){
+            $("#2").html(reponses[1].name+' - '+reponses[1].value)
+          }, 400);
+        };
+      });
+      $(document).keydown(function(e){
+        if(e.keyCode==99){
+          audioElement1.play();
+          setTimeout(function(){
+            $("#3").html(reponses[2].name+' - '+reponses[2].value)
+          }, 400);
+        };
+      });
+      $(document).keydown(function(e){
+        if(e.keyCode==100){
+          audioElement1.play();
+          setTimeout(function(){
+            $("#4").html(reponses[3].name+' - '+reponses[3].value)
+          }, 400);
+        };
+      });
+      $(document).keydown(function(e){
+        if(e.keyCode==101){
+          audioElement1.play();
+          setTimeout(function(){
+            $("#5").html(reponses[4].name+' - '+reponses[4].value)
+          }, 400);
+        };
+      });
+      $(document).keydown(function(e){
+        if(e.keyCode==102){
+          audioElement1.play();
+          setTimeout(function(){
+            $("#6").html(reponses[5].name+' - '+reponses[5].value)
+          }, 400);
+        };
+      });
+      $(document).keydown(function(e){
+        if(e.keyCode==103){
+          audioElement1.play();
+          setTimeout(function(){
+            $("#7").html(reponses[6].name+' - '+reponses[6].value)
+          }, 400);
+        };
+      });
+      $(document).keydown(function(e){
+        if(e.keyCode==104){
+          audioElement1.play();
+          setTimeout(function(){
+            $("#8").html(reponses[7].name+' - '+reponses[7].value)
+          }, 400);
+        };
+      });
+
+
+
+   </script>
+
+ </html>
